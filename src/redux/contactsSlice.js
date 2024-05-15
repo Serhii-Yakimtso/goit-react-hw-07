@@ -1,7 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { nanoid } from 'nanoid';
 
-const initStateContacts = { items: [] };
+const initStateContacts = {
+  contacts: {
+    items: [],
+    loading: false,
+    error: null,
+  },
+  filters: {
+    name: '',
+  },
+};
 
 const contactsSlice = createSlice({
   name: 'contacts',
