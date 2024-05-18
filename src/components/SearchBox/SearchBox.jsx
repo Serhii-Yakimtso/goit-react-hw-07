@@ -1,14 +1,18 @@
 import { useId } from 'react';
 import css from './SearchBox.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { changeFilter } from '../../redux/filtersSlice';
-// import { selectNameFilter } from '../../redux/selectors';
+import { changeNameFilter, selectNameFilter } from '../../redux/filtersSlice';
 
 export default function SearchBox() {
   const nameFieldId = useId();
 
-  const value = useSelector(selectNameFilter);
+  const valueFilter = useSelector(selectNameFilter);
   const dispatch = useDispatch();
+
+  const handleFilter = evt => {
+    console.log('filter ', evt.target.value);
+    dispatch(changeNameFilter(evt.target.value));
+  };
 
   return (
     <>
@@ -20,9 +24,9 @@ export default function SearchBox() {
           className={css.input}
           id={nameFieldId}
           type="text"
-          value={value}
+          value={valueFilter}
           name="username"
-          onChange={evt => dispatch(changeFilter(evt.target.value))}
+          onChange={handleFilter}
         />
       </form>
     </>

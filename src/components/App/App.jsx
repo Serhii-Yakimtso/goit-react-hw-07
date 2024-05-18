@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
-import { fetchContacts } from '../../redux/contactsOps';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectLoading, selectError } from '../../redux/selectors';
-
+import { selectLoading, selectError } from '../../redux/contactsSlice';
+import { fetchContacts } from '../../redux/contactsOps';
 import ContactList from '../ContactList/ContactList';
 import SearchBox from '../SearchBox/SearchBox';
 import ContactForm from '../ContactForm/ContactForm';
@@ -26,7 +25,7 @@ function App() {
         {isLoading && <p>Loading...</p>}
         {isError && <p>error...</p>}
         <ContactForm />
-        {/* <SearchBox /> */}
+        <SearchBox />
         <ContactList />
       </div>
     </>
