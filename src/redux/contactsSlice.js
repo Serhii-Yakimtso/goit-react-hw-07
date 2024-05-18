@@ -8,9 +8,6 @@ const initStateContacts = {
     loading: false,
     error: null,
   },
-  filters: {
-    name: '',
-  },
 };
 
 const contactsSlice = createSlice({
