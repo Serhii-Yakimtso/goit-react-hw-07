@@ -1,7 +1,7 @@
 import { useId } from 'react';
-import css from './SearchBox.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeNameFilter, selectNameFilter } from '../../redux/filtersSlice';
+import css from './SearchBox.module.css';
 
 export default function SearchBox() {
   const nameFieldId = useId();
@@ -10,7 +10,6 @@ export default function SearchBox() {
   const dispatch = useDispatch();
 
   const handleFilter = evt => {
-    console.log('filter ', evt.target.value);
     dispatch(changeNameFilter(evt.target.value));
   };
 
