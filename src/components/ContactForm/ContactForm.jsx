@@ -1,12 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { addContact } from '../../redux/contactsOps';
 import { useId } from 'react';
+import { addContact } from '../../redux/contactsOps';
 import * as Yup from 'yup';
-// import { useSelector } from 'react-redux';
-// import { selectContacts } from '../../redux/selectors';
-
-// import { addContact } from '../../redux/contactsSlice';
 
 import css from './ContactForm.module.css';
 
@@ -34,8 +30,6 @@ export default function ContactForm() {
 
   const handleSubmit = (values, actions) => {
     dispatch(addContact(values));
-    console.log(values);
-    // console.log(useSelector(selectContacts));
     actions.resetForm();
   };
 
